@@ -25,11 +25,11 @@ const Input: React.FC<InputProps> = ({
   return (
     <>
       {label && (
-        <label htmlFor={id} className="text-sm mt-5">
+        <label htmlFor={id} className="text-sm mt-5 text-shining-silver">
           {label}
         </label>
       )}
-      <div className="flex gap-5 p-3.5 mt-2.5 text-base rounded border-2 border-solid border-neutral-700 text-zinc-500">
+      <div className="flex gap-5 p-3.5 mt-2.5 text-base rounded border-2 border-solid border-neutral-700 text-sharkskin">
         <input
           type={type}
           id={id}
