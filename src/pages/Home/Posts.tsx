@@ -2,11 +2,14 @@
 import React from "react";
 
 // Import Types
-import { PostProps } from "./../../types/posts";
+import { PostProps } from "../../types/interfaces/posts";
 
 // Import Assets
 import dots from "./../../assets/dots.png";
 import message from "./../../assets/message.png";
+
+// Import Constants
+import { homeStaticData } from "./../../constants/static/home";
 
 const Post: React.FC<PostProps> = ({
   author,
@@ -45,11 +48,11 @@ const Post: React.FC<PostProps> = ({
         <button
           type="button"
           className="shrink-0 my-auto w-5 aspect-square bg-transparent border-none cursor-pointer"
-          aria-label="More options"
+          aria-label={homeStaticData.posts.moreOption}
         >
           <img
             src={dots}
-            alt="More options"
+            alt={homeStaticData.posts.moreOption}
             className="w-full h-full object-contain"
           />
         </button>
@@ -71,10 +74,12 @@ const Post: React.FC<PostProps> = ({
           <div className="flex gap-2 text-sm font-medium text-zinc-500">
             <img
               src={message}
-              alt="Comments"
+              alt={homeStaticData.posts.comments}
               className="shrink-0 w-5 aspect-square cursor-pointer"
             />
-            <div className="my-auto">{commentsCount} comments</div>
+            <div className="my-auto">
+              {commentsCount} {homeStaticData.posts.comments}
+            </div>
           </div>
         )}
         <button
@@ -83,7 +88,9 @@ const Post: React.FC<PostProps> = ({
             isLiked ? "bg-blue-600 text-white" : "bg-zinc-700 text-zinc-400"
           }`}
           onClick={handleLike}
-          aria-label={isLiked ? "Unlike" : "Like"}
+          aria-label={
+            isLiked ? homeStaticData.posts.unLike : homeStaticData.posts.like
+          }
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
