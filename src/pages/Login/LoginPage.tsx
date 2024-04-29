@@ -7,10 +7,14 @@ import LoginForm from "./LoginForm";
 //Import Constants
 import { loginStaticData } from "../../constants/static/login";
 
-function LoginPage() {
+// Import Types
+import { LoginProps } from "../../types/interfaces/login";
+
+const LoginPage: React.FC<LoginProps> = ({ setIsDashboardVisible }) => {
   const handleLogin = (email: string, password: string) => {
     // Perform login logic here
     console.log("Login submitted:", email, password);
+    setIsDashboardVisible(true);
   };
 
   return (
@@ -34,6 +38,6 @@ function LoginPage() {
       </div>
     </div>
   );
-}
+};
 
 export default LoginPage;
