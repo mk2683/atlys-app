@@ -10,11 +10,18 @@ import { loginStaticData } from "../../constants/static/login";
 // Import Types
 import { LoginProps } from "../../types/interfaces/login";
 
-const LoginPage: React.FC<LoginProps> = ({ setIsDashboardVisible }) => {
+const LoginPage: React.FC<LoginProps> = ({
+  setIsDashboardVisible,
+  setIsRegisterVisible,
+}) => {
   const handleLogin = (email: string, password: string) => {
     // Perform login logic here
     console.log("Login submitted:", email, password);
-    setIsDashboardVisible(true);
+    (setIsDashboardVisible ?? (() => {}))(true);
+  };
+
+  const openRegisterModal = () => {
+    setIsRegisterVisible(true);
   };
 
   return (
@@ -31,7 +38,10 @@ const LoginPage: React.FC<LoginProps> = ({ setIsDashboardVisible }) => {
           <span className="font-medium text-sharkskin">
             {loginStaticData.notRegistered}
           </span>
-          <span className="font-medium text-stone-300 cursor-pointer">
+          <span
+            className="font-medium text-stone-300 cursor-pointer"
+            onClick={openRegisterModal}
+          >
             {loginStaticData.registerText}
           </span>
         </div>

@@ -7,3 +7,4 @@ export interface PostProps {
   content: string;
   commentsCount?: number;
 }
+

@@ -2,7 +2,15 @@ import * as React from "react";
 import { registerStaticData } from "./../../constants/static/register";
 import RegisterForm from "./RegisterForm";
 
-function Register() {
+interface RegisterProps {
+  setIsLoginVisible: (isLoginVisible: boolean) => void;
+  setIsRegisterVisible: (isLoginVisible: boolean) => void;
+}
+
+const Register: React.FC<RegisterProps> = ({
+  setIsLoginVisible,
+  setIsRegisterVisible,
+}) => {
   const handleRegister = (
     email: string,
     username: string,
@@ -12,6 +20,11 @@ function Register() {
     console.log("New User", email, username, password);
   };
 
+  const openLoginModal = () => {
+    setIsLoginVisible(true);
+    setIsRegisterVisible(false);
+  };
+
   return (
     <>
       <div className="flex flex-col justify-center font-medium max-w-[463px] bg-gradient-to-b from-sharkFin to-jet rounded p-0.5">
@@ -19,7 +32,7 @@ function Register() {
           <div className="text-sm tracking-wide text-neutral-500">
             {registerStaticData.title}
           </div>
-          <h1 className="mt-4 text-lg font-semibold text-white">
+          <h1 className="mt-3 text-lg font-semibold text-white">
             {registerStaticData.description}
           </h1>
           <RegisterForm onSubmit={handleRegister} />
@@ -27,7 +40,10 @@ function Register() {
             <span className="font-medium text-sharkskin">
               {registerStaticData.notLoggedIn}
             </span>
-            <span className="font-medium text-stone-300 cursor-pointer">
+            <span
+              className="font-medium text-stone-300 cursor-pointer"
+              onClick={openLoginModal}
+            >
               {registerStaticData.loginText}
             </span>
           </div>
@@ -35,6 +51,6 @@ function Register() {
       </div>
     </>
   );
-}
+};
 
 export default Register;

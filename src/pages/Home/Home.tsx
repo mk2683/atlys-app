@@ -18,11 +18,21 @@ import author1 from "./../../assets/author1.png";
 import { PostProps } from "../../types/interfaces/posts";
 import Register from "../Register/Register";
 
-const Home: React.FC = () => {
+interface HomeProps {
+  setIsLoginVisible: (isLoginVisible: boolean) => void;
+  isLoginVisible: boolean;
+  isRegisterVisible: boolean;
+  setIsRegisterVisible: (isLoginVisible: boolean) => void;
+}
+
+const Home: React.FC<HomeProps> = ({
+  setIsLoginVisible,
+  isLoginVisible,
+  isRegisterVisible,
+  setIsRegisterVisible,
+}) => {
   const [posts, setPosts] = React.useState<PostProps[]>(authordata);
   const [isModalVisible, setIsModalVisible] = React.useState<boolean>(false);
-
-  console.log(posts);
 
   const handleCreatePost = (content: string) => {
     const newPost: PostProps = {
@@ -33,6 +43,7 @@ const Home: React.FC = () => {
       content,
     };
     setPosts([newPost, ...posts]);
+    setIsLoginVisible(false);
     setIsModalVisible(true);
   };
 
@@ -57,11 +68,14 @@ const Home: React.FC = () => {
         </div>
       </main>
       <Modal isOpen={isModalVisible} onClose={handleOnClose}>
-        {/* <LoginPage
-          setIsDashboardVisible={function (isDashboardVisible: boolean): void {
-            throw new Error("Function not implemented.");
-          }} */}
-        <Register />
+        {isLoginVisible && !isRegisterVisible ? (
+          <LoginPage setIsRegisterVisible={setIsRegisterVisible} />
+        ) : (
+          <Register
+            setIsLoginVisible={setIsLoginVisible}
+            setIsRegisterVisible={setIsRegisterVisible}
+          />
+        )}
       </Modal>
     </>
   );
