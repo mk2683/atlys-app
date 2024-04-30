@@ -26,7 +26,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col self-stretch px-6 mt-5 w-full text-stone-300"
+      className="flex flex-col self-stretch px-4 mt-5 w-full text-stone-300"
     >
       <Input
         label={loginStaticData.email.label}

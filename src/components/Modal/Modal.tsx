@@ -17,12 +17,12 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
 
   return (
     <div
-      className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50"
+      className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50 backdrop-blur-sm"
       role="dialog"
       aria-modal="true"
     >
-      <div className="bg-zinc-800 rounded-lg shadow-lg">
-        <div className="flex justify-end p-4">
+      <div className="bg-zinc-800 rounded-lg shadow-lg w-[463px]">
+        <div className="flex justify-end relative top-6 right-4 h-0">
           <button
             type="button"
             onClick={onClose}
@@ -38,7 +38,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
             />
           </button>
         </div>
-        <div className="p-6">{children}</div>
+        <div>{children}</div>
       </div>
     </div>
   );

@@ -19,7 +19,7 @@ const LoginPage: React.FC<LoginProps> = ({ setIsDashboardVisible }) => {
 
   return (
     <div className="flex flex-col justify-center font-medium max-w-[463px] bg-gradient-to-b from-sharkFin to-jet rounded p-0.5">
-      <div className="flex flex-col items-center px-3 py-7 w-full rounded-lg bg-zinc-800">
+      <div className="flex flex-col items-center px-3 py-7 w-full rounded bg-zinc-800">
         <div className="text-sm tracking-wide text-neutral-500">
           {loginStaticData.title}
         </div>
