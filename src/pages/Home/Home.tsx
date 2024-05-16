@@ -8,8 +8,8 @@ import Modal from "../../components/Modal/Modal";
 import LoginPage from "../Login/LoginPage";
 
 // Import Constants
-import { authordata } from "./../../constants/constant";
-import { homeStaticData } from "./../../constants/static/home";
+import { authordata } from "../../constants/constant";
+import { homeStaticData } from "../../constants/static/home";
 
 // Import Assets
 import author1 from "./../../assets/author1.png";

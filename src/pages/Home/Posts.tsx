@@ -9,7 +9,7 @@ import dots from "./../../assets/dots.png";
 import message from "./../../assets/message.png";
 
 // Import Constants
-import { homeStaticData } from "./../../constants/static/home";
+import { homeStaticData } from "../../constants/static/home";
 
 const Post: React.FC<PostProps> = ({
   author,

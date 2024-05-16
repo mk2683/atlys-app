@@ -1,5 +1,5 @@
 import * as React from "react";
-import { registerStaticData } from "./../../constants/static/register";
+import { registerStaticData } from "../../constants/static/register";
 import RegisterForm from "./RegisterForm";
 
 interface RegisterProps {

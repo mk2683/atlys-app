@@ -1,7 +1,7 @@
 import * as React from "react";
 import eyelogo from "../../assets/eye.png";
 import Input from "../../components/Input/Input";
-import { registerStaticData } from "./../../constants/static/register";
+import { registerStaticData } from "../../constants/static/register";
 
 interface RegisterFormProps {
   onSubmit: (email: string, username: string, password: string) => void;

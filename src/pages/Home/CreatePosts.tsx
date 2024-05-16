@@ -2,7 +2,7 @@
 import React from "react";
 
 // Import Constants
-import { homeStaticData } from "./../../constants/static/home";
+import { homeStaticData } from "../../constants/static/home";
 
 interface CreatePostProps {
   onPost: (content: string) => void;
